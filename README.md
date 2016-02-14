@@ -1,9 +1,16 @@
 # Misc Documents
 
+### What to add to `git/config`
+```
+[remote "curseforge"]
+	url = git@git.curseforge.net:wow/REPOSITORY/mainline.git
+	fetch = +refs/heads/*:refs/remotes/curseforge/*
+```
+
 ### How to upload release version to CurseForge 
 ```
-git tag -a v0.1 -m "Tagging as v0.1"
-git push <curseforge> --tags
+git tag -a 60200.1 -m "60200.1"
+git push curseforge --tags
 ```
 http://wow.curseforge.com/wiki/repositories/repository-faq/
 
@@ -17,11 +24,9 @@ http://wow.curseforge.com/wiki/repositories/repository-faq/
 ### Git
 - Follow the instructions of the article about SSH Public Keys.
 - Go to your project page and it will list your "Development url". This is what you will be pushing to. ''Note: If you have a pre-1.6.2 version of Git, you can't clone the repository if it's empty, you'll have to push to it first.''
-- `mkdir MyProject` (Or whatever your project's name is)
-- `cd MyProject`
+- `mkdir REPOSITORY` (Or whatever your project's name is)
+- `cd REPOSITORY`
 - `git init`
-- `git remote add origin git@git.curseforge.net:wow/my-project/mainline.git` (Whatever your "Development url" actually is.)
+- `git remote add curseforge git@git.curseforge.net:wow/REPOSITORY/mainline.git` (Whatever your "Development url" actually is.)
 - Add whatever files you want, commit it locally
-- `git push origin master` (Note: If you are using OpenSSH you need to push from Git Bash)
-- Add some more files, commit locally
-- `git push` (You only have to do this from now on. Note: If you are using OpenSSH you need to push from Git Bash)
+- `git push curseforge master` (Note: If you are using OpenSSH you need to push from Git Bash)
